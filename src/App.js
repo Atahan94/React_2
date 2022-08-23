@@ -1,25 +1,52 @@
 import logo from './logo.svg';
 import './App.css';
+import ListE from './List/List.js';
+import {Fragment} from "react";
+import { useState } from 'react';
 
 function App() {
+  const listOfPeople = [
+    {
+      name:"jack",
+      age:"18",
+      id:"18282"
+    },
+    {
+      name:"Samed",
+      age:"28",
+      id:"94566"
+    },
+    {
+      name:"Yigit",
+      age:"24",
+      id:"51358"
+    },
+    {
+      name:"Ulaş",
+      age:"25",
+      id:"71354"
+    },
+    {
+      name:"Berkay",
+      age:"25",
+      id:"32662"
+    },
+    {
+      name:"At",
+      age:"21",
+      id:"54852"
+    },
+  ];
+   const [list, setList] = useState(listOfPeople);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+    <h1>People</h1>
+     <ListE List={list}/>
+     <div className='buttonC'>
+     <button onClick={() => {setList([])}}>Remove</button>
+     </div>
+    </Fragment>
   );
-}
+};
 
 export default App;
